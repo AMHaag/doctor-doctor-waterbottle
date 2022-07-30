@@ -1,0 +1,23 @@
+{
+  "name": "doctor-doctor-waterbottle",
+  "version": "1.0.0",
+  "description": "Module 18 Challenge, Trilogy Bootcamp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AMHaag/doctor-doctor-waterbottle.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AMHaag/doctor-doctor-waterbottle/issues"
+  },
+  "homepage": "https://github.com/AMHaag/doctor-doctor-waterbottle#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "mongoose": "^6.5.0"
+  }
+}
