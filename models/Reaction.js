@@ -23,3 +23,13 @@ Reaction (SCHEMA ONLY)
 Schema Settings
 
 This will not be a model, but rather will be used as the reaction field's subdocument schema in the Thought model. */
+
+const { Schema, model } = require('mongoose');
+
+const ReactionSchema = new Schema ({
+    reactionId:{},
+    reactionBoday:{},
+    username:{},
+    createdAt:{}
+    
+})
