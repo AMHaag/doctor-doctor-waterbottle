@@ -1,7 +1,7 @@
 /* 
 TODO: Needed Methods
 
-// Get all users~
+ Get all users~ 
 // Get user by ID
 // Post new user 
 // Put to update user by ID
@@ -12,7 +12,7 @@ TODO: Needed Methods
 
 ?? Add /api/users/:userId/s/:Id
 - Post to add new 
-- Delte to remove  from list
+- Delte to remove from list
 
 */
 

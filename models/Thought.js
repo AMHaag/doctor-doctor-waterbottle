@@ -23,6 +23,9 @@ Schema Settings
 Create a virtual called reactionCount that retrieves the length of the thought's reactions array field on query. */
 
 const { Schema, model } = require('mongoose');
+const timestamp = require('date-fns/format');
+let currentTime = timestamp(Date.now(), 'Pp');
+console.log(currentTime);
 
 const ThoughtSchema = new Schema({
   thoughtText: {
@@ -31,14 +34,22 @@ const ThoughtSchema = new Schema({
     min: 1,
     max: 280,
   },
-  createdAt: {
-    type:Date,
-    
+  createDate: {
+    type: Date,
+    default: Date.now(),
+    get: (val) => {
+    timestamp(val, 'Pp');
+    },
   },
-  username: {},
-  reactions: {},
+  username: {
+    type: String,
+    required: true,
+  },
+  reactions: [],
 });
-
+// ThoughtSchema.path('createdAt').get((val) => {
+//   timestamp(val, 'Pp');
+// });
 const Thought = model('Thought', ThoughtSchema);
 
 module.exports = Thought;

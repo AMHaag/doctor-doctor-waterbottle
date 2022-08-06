@@ -33,7 +33,7 @@ const UserSchema = new Schema({
     type: String,
     required: true,
     unique: true,
-    trim:true,
+    trim: true,
     match: [/^[a-z.]+@[a-z]+.[a-z]{2,3}$/gi],
   },
   thoughts: [
@@ -46,7 +46,5 @@ const UserSchema = new Schema({
 });
 
 const User = model('User', UserSchema);
-
-let testData = new User({username:"test",email:"test@test.com"})
 
 module.exports = User;

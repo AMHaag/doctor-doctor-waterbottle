@@ -8,7 +8,7 @@ const {
   deleteUser,
 } = require('../../controllers/user-controller');
 
-// /api/users
+// /api/user
 router.route('/').get(getAllUsers).post(postNewUser);
 
 module.exports = router;
