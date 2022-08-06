@@ -4,7 +4,8 @@
   "description": "Module 18 Challenge, Trilogy Bootcamp",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "run": "node server",
+    "kill": "npx kill-port 3001"
   },
   "repository": {
     "type": "git",

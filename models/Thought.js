@@ -25,8 +25,16 @@ Create a virtual called reactionCount that retrieves the length of the thought's
 const { Schema, model } = require('mongoose');
 
 const ThoughtSchema = new Schema({
-  thoughtText: {},
-  createdAt: {},
+  thoughtText: {
+    type: String,
+    required: true,
+    min: 1,
+    max: 280,
+  },
+  createdAt: {
+    type:Date,
+    
+  },
   username: {},
   reactions: {},
 });
