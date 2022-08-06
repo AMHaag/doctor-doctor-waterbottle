@@ -33,12 +33,20 @@ const UserSchema = new Schema({
     type: String,
     required: true,
     unique: true,
-    validate: email,
+    trim:true,
+    match: [/^[a-z.]+@[a-z]+.[a-z]{2,3}$/gi],
   },
-  thoughts:{},
-  friends:{}
+  thoughts: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Thought',
+    },
+  ],
+  friends: {},
 });
 
 const User = model('User', UserSchema);
+
+let testData = new User({username:"test",email:"test@test.com"})
 
 module.exports = User;

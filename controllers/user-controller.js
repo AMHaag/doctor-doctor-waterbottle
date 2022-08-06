@@ -10,9 +10,9 @@ TODO: Needed Methods
 * /Bonus/
 - Remove a user's associated thoughts when deleted
 
-?? Add /api/users/:userId/friends/:friendId
-- Post to add new friend
-- Delte to remove friend from list
+?? Add /api/users/:userId/s/:Id
+- Post to add new 
+- Delte to remove  from list
 
 */
 
@@ -20,7 +20,7 @@ const { User } = require('../models');
 
 const userController = {
   getAllUsers: function (req, res) {
-    User.findAll()
+    User.find()
       .then((dbUserData) => res.json(dbUserData))
       .catch((err) => {
         console.log(err);
@@ -58,4 +58,4 @@ const userController = {
   },
 };
 
-module.export = userController;
+module.exports = userController;
