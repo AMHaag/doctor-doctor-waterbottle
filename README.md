@@ -18,7 +18,7 @@ University of Connecticut Trilogy U2 Bootcamp, Module 18 Challenge
 This excercise is to demonstrate my understanding and comprehension of noSQL databases and further practice of routing through express.js
 
  ### Walk Through Video
- My walkthrough video can be found [here]().
+ My walkthrough video can be found [here](https://drive.google.com/file/d/1fDZfnYvP8gC2EtBurFm6v152nOuVpXho/view).
  ### Installation
 This project is not hosted or deployed anywhere, it is purely an excercise. To install locally download the repo and run the following commands:
 ```
