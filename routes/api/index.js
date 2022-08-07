@@ -6,7 +6,7 @@ router.use('/user', userRoutes);
 router.use('/thought', thoughtRoutes);
 
 router.use((req, res) => {
-  res.status(404).send('404-user');
+  res.status(404).send('Not found');
 });
 
 module.exports = router;

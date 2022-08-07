@@ -4,7 +4,7 @@ const userRoutes = require('./api');
 router.use('/api', userRoutes);
 
 router.use((req, res) => {
-  res.status(404).send('api-404');
+  res.status(404).send('Not FOund');
 });
 
 module.exports = router;

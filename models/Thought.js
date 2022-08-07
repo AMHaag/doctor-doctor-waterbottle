@@ -1,55 +1,71 @@
-/* fields:
 
+const { Schema, model, Types } = require('mongoose');
+const moment = require('moment');
 
-    thoughtText
-        String
-        Required
-        Must be between 1 and 280 characters
-
-    createdAt
-        Date
-        Set default value to the current timestamp
-        Use a getter method to format the timestamp on query
-
-    username (The user that created this thought)
-        String
-        Required
-
-    reactions (These are like replies)
-        Array of nested documents created with the reactionSchema
-
-Schema Settings
-
-Create a virtual called reactionCount that retrieves the length of the thought's reactions array field on query. */
-
-const { Schema, model } = require('mongoose');
-const timestamp = require('date-fns/format');
-let currentTime = timestamp(Date.now(), 'Pp');
-console.log(currentTime);
+const ReactionSchema = new Schema({
+    reactionId: {
+        type: Schema.Types.ObjectId,
+        default: () => new Types.ObjectId()
+    },
+    reactionBody: {
+        type: String,
+        required: true,
+        maxlength: 280
+    },
+    username: {
+        type: String,
+        required: true
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now,
+        get: createdAtVal => moment(createdAtVal).format('MMM DD, YYYY [at] hh:mm a')
+    }
+},
+    {
+        toJSON: {
+            virtuals: true,
+            getters: true
+        },
+        id: false
+    }
+);
 
 const ThoughtSchema = new Schema({
-  thoughtText: {
-    type: String,
-    required: true,
-    min: 1,
-    max: 280,
-  },
-  createDate: {
-    type: Date,
-    default: Date.now(),
-    get: (val) => {
-    timestamp(val, 'Pp');
+    thoughtText: {
+        type: String,
+        required: true,
+        minlength: 1,
+        maxlength: 280
     },
-  },
-  username: {
-    type: String,
-    required: true,
-  },
-  reactions: [],
+    createdAt: {
+        type: Date,
+        default: Date.now,
+        get: createdAtVal => moment(createdAtVal).format('MMM DD, YYYY [at] hh:mm a')
+    },
+    username: {
+        type: String,
+        required: true
+    },
+    reactions: [ReactionSchema]
+},
+
+    {
+        toJSON: {
+            virtuals: true,
+            getters: true
+        },
+        id: false
+    }
+);
+
+ThoughtSchema.virtual('reactionCount').get(function () {
+    return this.reactions.length;
 });
-// ThoughtSchema.path('createdAt').get((val) => {
-//   timestamp(val, 'Pp');
-// });
+
+
 const Thought = model('Thought', ThoughtSchema);
 
+
 module.exports = Thought;
+
